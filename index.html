@@ -207,7 +207,7 @@
 
     <section class="brands-section">
       <div class="brand-card" onclick="filterProducts('apple')">
-        <img src="images/apple.logo.png " alt="Apple Logo">
+        <img src="images/apple.logo.png" alt="Apple Logo">
         <h3 data-i18n="brand-apple">Apple</h3>
         <p data-i18n="brand-apple-desc">Explore iPhones</p>
       </div>
@@ -408,10 +408,10 @@
               <!-- RAM Filter -->
               <div class="filter-section">
                 <div class="filter-section-title">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
+                  <!-- simplified chip icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6" stroke="currentColor" fill="none" stroke-width="1.5">
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                    <rect x="8" y="8" width="8" height="8" rx="1" ry="1"></rect>
                   </svg>
                   <span data-i18n="filter-ram">RAM</span>
                 </div>
@@ -421,10 +421,9 @@
               <!-- Storage Filter -->
               <div class="filter-section">
                 <div class="filter-section-title">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6" stroke="currentColor" fill="none" stroke-width="1.5">
+                    <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
                   </svg>
                   <span data-i18n="filter-storage">Storage</span>
                 </div>
@@ -446,8 +445,7 @@
               <div class="filter-section">
                 <div class="filter-section-title">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
-                    </path>
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                     <circle cx="12" cy="13" r="4"></circle>
                   </svg>
                   <span data-i18n="filter-camera">Camera</span>
@@ -467,13 +465,11 @@
                 <div class="filter-options" id="batteryFilters"></div>
               </div>
 
-              <!-- Camera Filter -->
+              <!-- Status Filter -->
               <div class="filter-section">
                 <div class="filter-section-title">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                    </polygon>
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                   </svg>
                   <span data-i18n="filter-status">Status</span>
                 </div>
@@ -606,8 +602,7 @@
           <svg
             style="width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 8px; stroke: #2563eb; fill: none; stroke-width: 2;"
             viewBox="0 0 24 24">
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.2.9.5 1.73.7 2.5" />
           </svg>
           +20 123 456 7890
         </p>
@@ -790,6 +785,7 @@
       </div>
     </div>
   </div>
+
   <!-- ========== PRODUCT DETAILS POPUP ========== -->
   <div class="popup-overlay" id="productDetailsPopup" onclick="closePopupOutside(event, 'productDetailsPopup')">
     <div class="popup-content product-details-content" onclick="event.stopPropagation()">
@@ -811,11 +807,12 @@
       <div class="popup-body product-details-body" id="productDetailsBody">
       </div>
     </div>
+  </div>
 
-    <script src="JS/translations.js"></script>
-    <script src="JS/db.js"></script>
-    <script src="JS/data.js"></script>
-    <script src="JS/main.js"></script>
+  <script src="JS/translations.js"></script>
+  <script src="JS/db.js"></script>
+  <script src="JS/data.js"></script>
+  <script src="JS/main.js"></script>
 </body>
 
 </html>
