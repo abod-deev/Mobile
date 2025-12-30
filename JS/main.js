@@ -86,7 +86,7 @@ function getColorStyle(colorName) {
 function selectDetailColor(color, element) {
   currentDetailSelectedColor = color;
 
-  // إعادة ضبط جميع الألوان للحالة المحايدة وإزالة علامة الصح
+  // ط¥ط¹ط§ط¯ط© ط¶ط¨ط· ط¬ظ…ظٹط¹ ط§ظ„ط£ظ„ظˆط§ظ† ظ„ظ„ط­ط§ظ„ط© ط§ظ„ظ…ط­ط§ظٹط¯ط© ظˆط¥ط²ط§ظ„ط© ط¹ظ„ط§ظ…ط© ط§ظ„طµط­
   document.querySelectorAll('.color-option').forEach(el => {
     el.classList.remove('selected');
     el.style.backgroundColor = '#f9fafb';
@@ -98,7 +98,7 @@ function selectDetailColor(color, element) {
   if (element) {
     element.classList.add('selected');
 
-    // اجعل المستطيل المختار بلونه الحقيقي مع علامة صح داخل المستطيل
+    // ط§ط¬ط¹ظ„ ط§ظ„ظ…ط³طھط·ظٹظ„ ط§ظ„ظ…ط®طھط§ط± ط¨ظ„ظˆظ†ظ‡ ط§ظ„ط­ظ‚ظٹظ‚ظٹ ظ…ط¹ ط¹ظ„ط§ظ…ط© طµط­ ط¯ط§ط®ظ„ ط§ظ„ظ…ط³طھط·ظٹظ„
     const bg = element.getAttribute('data-color-bg') || '#2563eb';
     element.style.backgroundColor = bg;
     element.style.color = '#ffffff';
@@ -106,7 +106,7 @@ function selectDetailColor(color, element) {
     if (!element.querySelector('.color-check')) {
       const checkEl = document.createElement('span');
       checkEl.className = 'color-check';
-      checkEl.textContent = '✓';
+      checkEl.textContent = 'âœ“';
       element.appendChild(checkEl);
     }
   }
@@ -164,9 +164,9 @@ function applyTranslations() {
   const statusLabels = document.querySelectorAll('#statusFilters .filter-option label');
   statusLabels.forEach(label => {
     const statusText = label.textContent.trim();
-    if (statusText === 'New Arrivals' || statusText === 'وصل حديثاً') {
+    if (statusText === 'New Arrivals' || statusText === 'ظˆطµظ„ ط­ط¯ظٹط«ط§ظ‹') {
       label.textContent = translations[currentLang]['status-new'] || statusText;
-    } else if (statusText === 'On Sale' || statusText === 'تخفيضات') {
+    } else if (statusText === 'On Sale' || statusText === 'طھط®ظپظٹط¶ط§طھ') {
       label.textContent = translations[currentLang]['status-sale'] || statusText;
     }
   });
@@ -176,16 +176,16 @@ function applyTranslations() {
   batteryLabels.forEach(label => {
     let text = label.textContent.trim();
 
-    // Translate "Less than" / "أقل من"
-    if (text.includes('Less than') || text.includes('أقل من')) {
+    // Translate "Less than" / "ط£ظ‚ظ„ ظ…ظ†"
+    if (text.includes('Less than') || text.includes('ط£ظ‚ظ„ ظ…ظ†')) {
       const lessText = translations[currentLang]['battery-less'] || 'Less than';
-      text = text.replace(/Less than|أقل من/, lessText);
+      text = text.replace(/Less than|ط£ظ‚ظ„ ظ…ظ†/, lessText);
       label.textContent = text;
     }
-    // Translate "Above" / "أكثر من"
-    else if (text.includes('Above') || text.includes('أكثر من')) {
+    // Translate "Above" / "ط£ظƒط«ط± ظ…ظ†"
+    else if (text.includes('Above') || text.includes('ط£ظƒط«ط± ظ…ظ†')) {
       const aboveText = translations[currentLang]['battery-above'] || 'Above';
-      text = text.replace(/Above|أكثر من/, aboveText);
+      text = text.replace(/Above|ط£ظƒط«ط± ظ…ظ†/, aboveText);
       label.textContent = text;
     }
   });
@@ -317,7 +317,6 @@ function displayProducts(productsToShow) {
       </div>
     `;
 
-    grid.appendChild(card);
     grid.appendChild(card);
   });
 
@@ -844,7 +843,7 @@ function addToCart(productId, color = null) {
   if (existingItem) {
     existingItem.quantity++;
   } else {
-    // نحفظ أيضاً اسم اللون المترجم (إن وجد) ليظهر في الـ checkout
+    // ظ†ط­ظپط¸ ط£ظٹط¶ط§ظ‹ ط§ط³ظ… ط§ظ„ظ„ظˆظ† ط§ظ„ظ…طھط±ط¬ظ… (ط¥ظ† ظˆط¬ط¯) ظ„ظٹط¸ظ‡ط± ظپظٹ ط§ظ„ظ€ checkout
     const lang = currentLang || localStorage.getItem('lang') || 'en';
     let colorNameAr = null;
     if (lang === 'ar' && product.colorsAr && product.colors && color) {
@@ -1159,7 +1158,7 @@ function showNotification(message, type = 'info', title = '') {
       <div class="notification-title">${titles[type]}</div>
       <div class="notification-message">${message}</div>
     </div>
-    <button class="notification-close" onclick="this.parentElement.remove()">✕</button>
+    <button class="notification-close" onclick="this.parentElement.remove()">âœ•</button>
   `;
 
   container.appendChild(notification);
@@ -1258,6 +1257,13 @@ function openProductDetails(productId) {
 
   // Navigate to new page
   window.location.href = `pages/product-details.html?id=${productId}`;
+}
+
+// Legacy popup function (kept for reference, not currently used)
+function openProductDetailsPopup(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
   const popup = document.getElementById('productDetailsPopup');
   const body = document.getElementById('productDetailsBody');
 
@@ -1273,7 +1279,7 @@ function openProductDetails(productId) {
   // Rating
   const rating = product.rating || 4.5;
   const reviews = product.reviews || 0;
-  const stars = '⭐'.repeat(Math.floor(rating));
+  const stars = 'â­گ'.repeat(Math.floor(rating));
 
   // Check wishlist
   const isInWishlist = wishlist.some(item => item.id === productId);
@@ -1285,7 +1291,7 @@ function openProductDetails(productId) {
   const productColorsEnglish = product.colors || [];
 
   const hasColors = productColorsLocalized && productColorsLocalized.length > 0;
-  // استخدم الوصف العربي إذا كانت اللغة الحالية عربية ويوجد حقل descriptionAr
+  // ط§ط³طھط®ط¯ظ… ط§ظ„ظˆطµظپ ط§ظ„ط¹ط±ط¨ظٹ ط¥ط°ط§ ظƒط§ظ†طھ ط§ظ„ظ„ط؛ط© ط§ظ„ط­ط§ظ„ظٹط© ط¹ط±ط¨ظٹط© ظˆظٹظˆط¬ط¯ ط­ظ‚ظ„ descriptionAr
   const description =
     (currentLang === 'ar' && product.descriptionAr)
       ? product.descriptionAr
@@ -1436,7 +1442,7 @@ function openProductDetails(productId) {
                    title="${colorName}"
                    style="${isSelected ? `background-color: ${bgStyle}; color: #ffffff;` : ''}">
                    <span class="color-text">${colorName}</span>
-                   ${isSelected ? '<span class="color-check">✓</span>' : ''}
+                   ${isSelected ? '<span class="color-check">âœ“</span>' : ''}
               </div>
               `;
   }).join('')}
@@ -1465,7 +1471,7 @@ function openProductDetails(productId) {
 
   popup.classList.add('active');
 
-  // تأكد أن حالة الألوان متزامنة بعد فتح النافذة
+  // طھط£ظƒط¯ ط£ظ† ط­ط§ظ„ط© ط§ظ„ط£ظ„ظˆط§ظ† ظ…طھط²ط§ظ…ظ†ط© ط¨ط¹ط¯ ظپطھط­ ط§ظ„ظ†ط§ظپط°ط©
   if (hasColors) {
     const selectedEl = document.querySelector('.color-option.selected') || document.querySelector('.color-option');
     if (selectedEl) {
@@ -2079,4 +2085,3 @@ window.addEventListener('scroll', () => {
 
   lastScrollY = currentScrollY;
 });
-
