@@ -1,5 +1,5 @@
 // ========== LOCAL DATABASE SYSTEM (IndexedDB) ==========
-// نظام قاعدة بيانات محلية بديل عن Firebase
+// Ù†Ø¸Ø§Ù… Ù‚Ø§Ø¹Ø¯Ø© Ø¨ÙŠØ§Ù†Ø§Øª Ù…Ø­Ù„ÙŠØ© Ø¨Ø¯ÙŠÙ„ Ø¹Ù† Firebase
 
 class LocalDatabase {
     constructor() {
@@ -32,13 +32,13 @@ class LocalDatabase {
             request.onsuccess = () => {
                 this.db = request.result;
                 this.isInitialized = true;
-                console.log('✅ Database opened successfully');
+                console.log('âœ… Database opened successfully');
                 resolve(this.db);
             };
 
             request.onupgradeneeded = (event) => {
                 this.db = event.target.result;
-                console.log('🔧 Upgrading database schema...');
+                console.log('ðŸ”§ Upgrading database schema...');
 
                 // Create Users store
                 if (!this.db.objectStoreNames.contains('users')) {
@@ -65,7 +65,7 @@ class LocalDatabase {
                     console.log('Created addresses store');
                 }
 
-                console.log('✅ Database setup complete');
+                console.log('âœ… Database setup complete');
             };
         });
 
