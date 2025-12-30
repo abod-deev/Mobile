@@ -894,7 +894,7 @@ const products = [
     brand: "Samsung",
     price: 10999,
     oldPrice: 12999,
-    image: "images/samsung/Samsung-Galaxy-A24-4G.webp ",
+    image: "images/samsung/Samsung-Galaxy-A24-4G.webp",
     specs: ["Helio G99", "6GB RAM", "128GB", "4G"],
     badge: "Sale",
     badgeType: "sale",
