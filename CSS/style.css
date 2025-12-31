@@ -97,9 +97,8 @@ body {
 }
 
 /* ========== SEARCH ========== */
-/* responsive: never exceed 450px but shrink on small screens */
 .search-container {
-  width: min(450px, 100%);
+  width: 450px;
   position: relative;
   transition: all 0.3s ease;
   justify-self: center;
@@ -117,8 +116,7 @@ body {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
-.search-box:focus,
-.search-box:focus-visible {
+.search-box:focus {
   outline: none;
   background: white;
   border-color: #2563eb;
@@ -180,32 +178,43 @@ body {
   background: white;
   border: 2px solid #e5e7eb;
   width: auto;
-  min-width: 46px; /* fixed start size */
-  max-width: 46px; /* start as circle */
+  /* Changed for smooth transition */
+  min-width: 46px;
+  /* Fixed start size */
+  max-width: 46px;
+  /* Start as circle */
   height: 46px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  overflow: visible; /* allow badge/label to overflow */
+  /* overflow: hidden; Removed to allow badge to sit on edge */
   padding: 0;
-  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Reset padding */
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .action-btn:hover {
-  max-width: 240px; /* allow smooth expansion */
-  padding: 0 20px; /* add padding for text */
-  border-radius: 20px; /* pill shape on expand */
-  background: #2563eb; /* solid blue background */
-  border-color: #2563eb; /* blue border */
-  color: white; /* white text & icon */
+  max-width: 200px;
+  /* Allow smooth expansion */
+  padding: 0 20px;
+  /* Add padding for text */
+  border-radius: 20px;
+  /* Pill shape on expand */
+  background: #2563eb;
+  /* Solid Blue Background */
+  border-color: #2563eb;
+  /* Blue Border */
+  color: white;
+  /* White Text & Icon */
   z-index: 10;
   box-shadow: 0 8px 15px rgba(37, 99, 235, 0.15);
 }
 
 .action-btn:hover svg {
-  stroke: white; /* icon becomes white on hover */
+  stroke: white;
+  /* Icon becomes white on hover */
 }
 
 .action-btn svg {
@@ -215,30 +224,34 @@ body {
   fill: none;
   stroke-width: 2;
   flex-shrink: 0;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 /* Expanding Label */
-/* default: hidden and slightly translated; on hover slide in */
 .icon-label {
   max-width: 0;
+  /* opacity: 0; Removed for slide effect */
   white-space: nowrap;
   margin-left: 0;
   font-size: 14px;
   font-weight: 500;
   color: white;
   padding: 0;
-  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Text is white on hover */
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Dramatic classic easing */
   overflow: hidden;
   display: inline-block;
   opacity: 0;
-  transform: translateX(-8px);
+  transform: none;
 }
 
 .action-btn:hover .icon-label {
   max-width: 150px;
+  /* Adjust as needed */
   opacity: 1;
-  margin-left: 8px;
+  margin-left: 4px;
+  /* Minimal space between icon and text */
   transform: translateX(0);
 }
 
@@ -257,14 +270,16 @@ body {
   align-items: center;
   justify-content: center;
   border: none;
+  /* Remove border to ensure blue is visible */
   z-index: 2;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  /* Ensure badge stays on top */
 }
 
 .action-btn:hover .badge {
   background: white;
   color: #2563eb;
   border: 2px solid white;
+  /* Add border on hover for visibility against blue */
 }
 
 /* RTL Support for Expanding Icons */
@@ -275,18 +290,20 @@ body {
 [dir="rtl"] .icon-label {
   margin-left: 0;
   margin-right: 0;
-  transform: translateX(8px); /* mirror the default LTR translate */
+  transform: translateX(10px);
 }
 
 [dir="rtl"] .action-btn:hover .icon-label {
   margin-left: 0;
-  margin-right: 8px; /* margin on right in RTL */
+  margin-right: 4px;
+  /* Margin on right in RTL */
   transform: translateX(0);
 }
 
 [dir="rtl"] .badge {
   right: auto;
-  left: -6px; /* move badge to left in RTL */
+  left: -6px;
+  /* Move badge to left in RTL */
 }
 
 /* ========== NAVIGATION MENU ========== */
@@ -296,23 +313,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   border-top: 1px solid rgba(0, 0, 0, 0.03);
   flex-wrap: nowrap;
-}
-
-/* mobile: hide menu by default (toggle .mobile-active to show) */
-@media (max-width: 767px) {
-  .nav-menu {
-    display: none;
-    padding: 12px 5%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .nav-menu.mobile-active {
-    display: flex;
-  }
 }
 
 .nav-link {
@@ -333,6 +336,7 @@ body {
 
 .nav-link::after {
   display: none;
+  /* Removed the old line */
 }
 
 .nav-link:hover {
@@ -386,7 +390,7 @@ body {
   padding: 10px;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2001;
 }
 
@@ -466,13 +470,6 @@ body {
   transform: rotate(-45deg) translateY(-7.5px);
 }
 
-/* show mobile-menu-btn on small screens */
-@media (max-width: 767px) {
-  .mobile-menu-btn {
-    display: inline-flex;
-  }
-}
-
 /* ========== MAIN CONTENT ========== */
 
 .main-content {
@@ -509,7 +506,9 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
+  /* grid-auto-rows: 1fr; Removed to allow cards to take natural height */
   align-items: start;
+  /* Prevent stretching */
 }
 
 @media (min-width: 1400px) {
@@ -570,6 +569,7 @@ body {
 
 .product-card:hover .product-image {
   background: #ffffff;
+  /* Keep background white */
 }
 
 .product-image img {
@@ -642,6 +642,7 @@ body {
 
 .product-info {
   padding: 16px;
+  /* flex: 1; Removed so info doesn't expand */
   display: flex;
   flex-direction: column;
 }
@@ -968,36 +969,6 @@ body {
   font-size: 16px;
   margin-top: 10px;
 }
-
-/* ========== CHECKOUT BUTTON ========== */
-
-.checkout-btn {
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.checkout-btn:hover {
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-}
-
-/* ========== AUTH TABS ========== */
-.auth-tabs {
-  display: flex;
-  border-bottom: 2px solid #e5e7eb;
-  margin-bottom: 25px;
-}
-
-/* ... بقية الملف كما هو أو يمكنني إكمال التعديلات لباقي الملف إذا أردت ... */
 
 /* ========== CHECKOUT BUTTON ========== */
 
@@ -3243,17 +3214,7 @@ body {
   }
 }
 
-@keyframes popupSlide {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+/* popupSlide keyframes already defined above */
 
 /* Filter Popup Header */
 .filter-popup-header {
@@ -4516,17 +4477,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-@keyframes popupFadeUp {
-    from {
-        transform: translateY(30px) scale(0.98);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-}
+/* popupFadeUp keyframes already defined above */
 
 /* Filter Grid & Sections */
 .filter-grid {
@@ -4836,4 +4787,3 @@ body {
     background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
     border-radius: 2px !important;
 }
-
