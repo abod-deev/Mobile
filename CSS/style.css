@@ -1134,6 +1134,25 @@ body {
 
 /* ========== RESPONSIVE DESIGN ========== */
 
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2998;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-menu-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .main-header {
     display: flex;
@@ -1193,10 +1212,23 @@ body {
     transition: left 0.4s ease;
     box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
     overflow-y: auto;
+    z-index: 2999;
   }
 
   .nav-menu.active {
     left: 0;
+  }
+
+  /* RTL Support for mobile menu */
+  [dir="rtl"] .nav-menu {
+    left: auto;
+    right: -100%;
+    transition: right 0.4s ease;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+  }
+
+  [dir="rtl"] .nav-menu.active {
+    right: 0;
   }
 
   .nav-link {
