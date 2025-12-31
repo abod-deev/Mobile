@@ -1136,18 +1136,47 @@ body {
 
 @media (max-width: 768px) {
   .main-header {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4%;
+    gap: 10px;
+  }
+
+  .logo {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .header-actions {
+    order: 2;
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+
+  .action-btn {
+    min-width: 38px;
+    max-width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    padding: 0;
+  }
+
+  .action-btn .icon-label {
+    display: none;
   }
 
   .search-container {
     order: 3;
     width: 100%;
     max-width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
   }
 
   .mobile-menu-btn {
     display: flex;
+    order: 0;
   }
 
   .nav-menu {
