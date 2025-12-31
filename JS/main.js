@@ -980,9 +980,18 @@ function closePopupOutside(event, popupId) {
 function toggleMenu() {
   const menu = document.getElementById('navMenu');
   const btn = document.querySelector('.mobile-menu-btn');
+  const overlay = document.getElementById('mobileMenuOverlay');
 
   if (menu) menu.classList.toggle('active');
   if (btn) btn.classList.toggle('active');
+  if (overlay) overlay.classList.toggle('active');
+
+  // Prevent body scroll when menu is open
+  if (menu && menu.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
 }
 
 function goToHome() {
